@@ -1,5 +1,6 @@
 body{
   background-color: beige;
+  margin: auto;
 }
 
 .card {
@@ -12,4 +13,37 @@ body{
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+
+#buttons{
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  
+  
+}
+.btn{
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 10px;
+  height: 30px;
+}
+
+#dogs{
+  background-color: aqua;
+}
+
+#cats{
+  background-color: blueviolet;
+  color: white
+}
+
+#dinos{
+  background-color: brown;
+  color: white;
+}
+
+#showall{
+  background-color: yellow;
 }
