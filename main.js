@@ -245,11 +245,15 @@ const pets = [
 // console.log(targetingApp);
 console.log('testing');
 
+// Function that will add items on the page.
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
 };
 
+
+//function that will add our array. Code is set up so that each
+// object is it's own card. HTML added here for factory functionality.
 const cardsOnDom = (array) =>{
   let domString = "";
   for (const member of array){
@@ -261,17 +265,24 @@ const cardsOnDom = (array) =>{
       <p class="card-text">${member.specialSkill}</p>
       <p>Color: ${member.color}</p>
     </div>
+    <button id='delete--${member.id}' class='delbtn'>Delete</button>
   </div>`;
   }
+  
+  //calling the render function to add the this code as many times
+  //as pets appear.
   renderToDom ('#app', domString);
 }
  
 
 // targetingApp.innerHTML = domString;
 
-
+// calling the function to display the pets. This is why you see
+// the cards on the page.
 cardsOnDom(pets);
 
+
+//Filter function that will function by the "type" key.
 const filter = (array, petType) => {
   const typeArray = [];
   for (const member of array){
@@ -282,11 +293,15 @@ const filter = (array, petType) => {
   return typeArray;
 }
 
+// assigning variables to the HTML filter buttons.
 const showAll = document.querySelector('#showall')
 const showDogs = document.querySelector('#dogs');
 const showCats = document.querySelector('#cats');
 const showDinos = document.querySelector('#dinos');
 
+
+//functions that will take the show variables and filter the pets
+// by type.
 showAll.addEventListener('click', () =>{
   cardsOnDom(pets);
 });
@@ -305,3 +320,53 @@ showDinos.addEventListener('click', () =>{
   const dinos = filter(pets, 'dino');
   cardsOnDom(dinos);
 });
+
+
+//Adding a submission form so that users can submit pets/
+const form = document.querySelector('#form');
+
+
+//function that will take user inputs and create a card. This function
+// adds a new object to the 'pets' array.
+const newMember = (e) => {
+  e.preventDefault();
+
+  //the new object.
+  let newPet = {
+    id: pets.length + 1 ,
+    name: document.querySelector('#petname').value,
+    color: document.querySelector('#petcolor').value,
+    specialSkill: document.querySelector('#petskill').value,
+    type: document.querySelector('.form-check-label').value,
+    imageUrl: document.querySelector('#petpic').value,
+  }
+
+  //pushing the new object to the array and then displaying the new
+  //HTML with the new pet added.
+  pets.push(newPet);
+  cardsOnDom(pets);
+
+  //Clears the form after the submit button is pressed.
+  form.reset();
+
+}
+
+
+//Code that will listen for the submit button being clicked.
+form.addEventListener('submit', newMember);
+
+
+//Code to delete pets.
+const app = document.querySelector('#app');
+
+const delPet = (e) => {
+  if (e.target.id.includes('delete')){
+  const [, id] = e.target.id.split('--');
+  const index = pets.findIndex(e => e.id === Number(id));
+  pets.splice(index, 1);
+  cardsOnDom(pets);
+  }
+  
+}
+
+app.addEventListener('click', delPet);

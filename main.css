@@ -1,10 +1,15 @@
 body{
   background-color: beige;
   margin: auto;
+  background-image: url('https://media.istockphoto.com/id/1011583734/vector/monochrome-black-and-white-dog-cat-pet-animal-paw-foot-hand-drawn-ink-sketch-seamless.jpg?s=612x612&w=0&k=20&c=JSFAQeJvgctndBMWWjBA7qeOME7crE51XBFf4v_QooE=');
+  
 }
 
 .card {
   margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: darkkhaki;
   
 }
 
@@ -46,4 +51,28 @@ body{
 
 #showall{
   background-color: yellow;
+}
+
+#form{
+  width: 400px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 5px 20px;
+  background-color: aqua;
+}
+
+#petsubmit{
+  margin-top: 15px;
+  
+}
+
+.delbtn{
+  background-color: red;
+  width: 75px;
+  border: 1px solid black;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  color: white;
 }
