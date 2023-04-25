@@ -337,7 +337,7 @@ const newMember = (e) => {
     name: document.querySelector('#petname').value,
     color: document.querySelector('#petcolor').value,
     specialSkill: document.querySelector('#petskill').value,
-    type: document.querySelector('.form-check-label').value,
+    type: document.querySelector('input[name= gridRadios]:checked').value,
     imageUrl: document.querySelector('#petpic').value,
   }
 
