@@ -273,9 +273,6 @@ const cardsOnDom = (array) =>{
   //as pets appear.
   renderToDom ('#app', domString);
 }
- 
-
-// targetingApp.innerHTML = domString;
 
 // calling the function to display the pets. This is why you see
 // the cards on the page.
